@@ -18,14 +18,19 @@ class AlienInvasion:
 
     def run_game(self):
         while True:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    sys.exit()
+            self.__check_events()
+            self.__update_screen()
 
-            self.screen.fill(self.settings.bg_color)
-            self.ship.blit()
+    def __check_events(self):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
 
-            pygame.display.flip()
+    def __update_screen(self):
+        self.screen.fill(self.settings.bg_color)
+        self.ship.blit()
+
+        pygame.display.flip()
 
 
 if __name__ == '__main__':
